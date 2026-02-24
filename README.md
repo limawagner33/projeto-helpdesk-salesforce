@@ -1,18 +1,33 @@
-# Salesforce DX Project: Next Steps
+# ☁️ Salesforce Helpdesk & Ticketing System
 
-Now that you’ve created a Salesforce DX project, what’s next? Here are some documentation resources to get you started.
+Um sistema completo de gerenciamento de chamados (Helpdesk) construído de ponta a ponta na plataforma Salesforce, aplicando as melhores práticas de Source-Driven Development e arquitetura Full-Stack.
 
-## How Do You Plan to Deploy Your Changes?
+Este projeto foi desenvolvido para solucionar um problema clássico de operações e suporte: garantir a rastreabilidade dos atendimentos, automatizar escalonamentos e fornecer uma interface intuitiva para os analistas, evitando gargalos administrativos.
 
-Do you want to deploy a set of changes, or create a self-contained application? Choose a [development model](https://developer.salesforce.com/tools/vscode/en/user-guide/development-models).
+## 🛠️ Arquitetura e Tecnologias Utilizadas
 
-## Configure Your Salesforce DX Project
+O projeto engloba todas as camadas de desenvolvimento do ecossistema Salesforce (Declarativo e Programático):
 
-The `sfdx-project.json` file contains useful configuration information for your project. See [Salesforce DX Project Configuration](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_config.htm) in the _Salesforce DX Developer Guide_ for details about this file.
+* **Database (Data Modeling):** Criação de Custom Objects (`Ticket__c`), relacionamentos e campos customizados para armazenar o histórico de chamados.
+* **Automação (Flow Builder):** Record-Triggered Flows configurados para interceptar e escalar automaticamente tickets marcados como "Urgente", otimizando o SLA de atendimento.
+* **Backend (Apex Triggers & Controllers):** * `TicketTrigger`: Lógica de validação em Apex para impedir que analistas fechem chamados sem preencher a resolução, garantindo a integridade dos dados na operação.
+    * `TicketController`: Classe Apex com `@AuraEnabled` servindo como ponte segura de dados (SOQL) para o front-end.
+* **Frontend (Lightning Web Components - LWC):** Componente customizado (`ticketList`) construído com HTML, CSS e JavaScript moderno para exibir em tempo real os chamados pendentes na página inicial do usuário, melhorando a UX e a produtividade.
+* **DevOps:** Versionamento completo de código utilizando Git, GitHub e Salesforce CLI (SFDX).
 
-## Read All About It
+## 🚀 Como instalar e testar este projeto
 
-- [Salesforce Extensions Documentation](https://developer.salesforce.com/tools/vscode/)
-- [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
-- [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm)
-- [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm)
+Se você é um recrutador ou desenvolvedor e deseja rodar esta estrutura em uma Scratch Org ou Developer Edition, siga os passos abaixo:
+
+1. Clone este repositório:
+   ```bash
+   git clone [https://github.com/limawagner33/projeto-helpdesk-salesforce.git](https://github.com/limawagner33/projeto-helpdesk-salesforce.git)
+2. Autorize sua Org de desenvolvimento:
+   ```bash
+   sf org login web -a Projeto-Helpdesk
+3. Faça o deploy de todo o código e metadados para a sua Org:
+   ```bash
+   sf project deploy start -o Projeto-Helpdesk
+4. Atribua as permissões e adicione o LWC à sua Home Page via Lightning App Builder.
+
+Desenvolvido com foco em engenharia de software e resolução de problemas de negócios por Wagner Lima.
