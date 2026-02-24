@@ -1,6 +1,8 @@
 # ☁️ Salesforce Helpdesk & Ticketing System
 
 Um sistema completo de gerenciamento de chamados (Helpdesk) construído de ponta a ponta na plataforma Salesforce, aplicando as melhores práticas de Source-Driven Development e arquitetura Full-Stack.
+<img width="1918" height="951" alt="Screenshot_1" src="https://github.com/user-attachments/assets/414a0f5a-74d0-435d-a748-8388e4e56c09" />
+<img width="1919" height="955" alt="Screenshot_2" src="https://github.com/user-attachments/assets/d8538478-c696-48fd-9955-80e537311775" />
 
 Este projeto foi desenvolvido para solucionar um problema clássico de operações e suporte: garantir a rastreabilidade dos atendimentos, automatizar escalonamentos e fornecer uma interface intuitiva para os analistas, evitando gargalos administrativos.
 
